@@ -1,0 +1,31 @@
+{
+    "name": "vesperabr/laravel-form-components",
+     "description": "Componentes Blade para desenvolvimento rápido de formulários",
+    "authors": [
+        {
+            "name": "Ricardo Monteiro",
+            "email": "ricardo.monteiro@vespera.com.br"
+        }
+    ],
+    "license": "MIT",
+    "type": "library",
+    "require": {
+        "php": ">=7.3",
+        "illuminate/support": "^7.22.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vespera\\LaravelFormComponents\\": "src"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Vespera\\LaravelFormComponents\\ServiceProvider"
+            ]
+        }
+    }
+}
