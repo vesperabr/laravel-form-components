@@ -47,6 +47,7 @@ class Input extends Component
         $this->showErrors = $showErrors;
         $this->masked = $masked;
 
+        $bind = $type === 'password' ? false : $bind;
         $this->setValue($name, $bind, $value);
     }
 }
