@@ -11,7 +11,7 @@
     "type": "library",
     "require": {
         "php": ">=7.3",
-        "illuminate/support": "^7.22.4"
+        "illuminate/support": "^8"
     },
     "autoload": {
         "psr-4": {
