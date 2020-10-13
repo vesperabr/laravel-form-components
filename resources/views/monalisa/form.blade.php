@@ -1,7 +1,7 @@
 <form
     method="{{ $method === 'GET' ? 'GET' : 'POST' }}"
     {{ $attributes->merge(['class' => $hasError() ? 'Form _with-error' : 'Form']) }}
-    {{ $multipart ? 'enctype="multipart/form-data"' : '' }}
+    {!! $multipart ? 'enctype="multipart/form-data"' : '' !!}
 >
     @unless(in_array($method, ['HEAD', 'GET', 'OPTIONS']))
         @csrf
