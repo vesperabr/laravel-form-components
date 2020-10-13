@@ -10,16 +10,18 @@ class Form extends Component
 {
     public $method;
     public $bind;
+    public $multipart;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(string $method = 'POST', $bind = null)
+    public function __construct(string $method = 'POST', $bind = null, $multipart = false)
     {
         $this->method = strtoupper(trim($method));
         $this->bind = $bind;
+        $this->multipart = $multipart;
         app(FormDataBinder::class)->bind($bind);
     }
 
