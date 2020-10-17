@@ -14,5 +14,6 @@
             >
             {{ $label }}
         </label>
+        {{ $slot }}
     </div>
 </div>

@@ -60,6 +60,14 @@ Você pode informar qualquer outro verbo e o componente irá lidar automaticamen
 
 Você pode informar normalmente qualquer outro atributo da tag `<form>`, como por exemplo `action`, `class`, `id`, etc.
 
+Você pode informar também o atributo `multipart`, que irá configurar automaticamente o formulário para enviar arquivos. Exemplo:
+
+```blade
+<x-form method="POST" multipart>
+    ...
+</x-form>
+```
+
 ### Label
 
 Na maioria dos componetes deste pacote você pode informar o atributo `label`, com isto o componente irá renderizar uma tag `<label>` com o valor especificado.
@@ -180,6 +188,16 @@ Você pode informar também o atributo `loader`, que exibe um loader ao clicar n
 <x-buttons submit="Salvar" loader />
 
 <x-buttons submit="Salvar" loader="Salvando..." />
+```
+
+### Slots
+
+Os componentes `<x-input>`, `<x-checkbox>`, `<x-checkboxes>`, `<x-radios>`, `<x-select>` e `<x-textarea>` permitem que você informe conteúdos adicionais, os chamados [Slots](https://laravel.com/docs/8.x/blade#slots). Por exemplo:
+
+```blade
+<x-input type="email" label="Digite seu e-mail">
+    <p>Fique tranquilo, também não gostamos de spam!</p>
+</x-input>
 ```
 
 ## Atribuição de valores

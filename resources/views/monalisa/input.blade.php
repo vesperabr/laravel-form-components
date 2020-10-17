@@ -20,5 +20,7 @@
         @empty(! $append)
             <div class="append">{{ $append }}</div>
         @endempty
+
+        {{ $slot }}
     </div>
 </div>

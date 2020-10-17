@@ -12,5 +12,6 @@
                 {{ $option }}
             </label>
         @endforeach
+        {{ $slot }}
     </div>
 </div>

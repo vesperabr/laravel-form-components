@@ -6,4 +6,5 @@
         {{ $attributes->merge(['class' => $hasError($name) ? '_error' : '']) }}
         {{ $required ? 'required' : '' }}
     >{!! $value !!}</textarea>
+    {{ $slot }}
 </div>
