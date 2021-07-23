@@ -24,7 +24,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Vespera\\LaravelFormComponents\\ServiceProvider"
+                "Vespera\\LaravelFormComponents\\Support\\ServiceProvider"
             ]
         }
     }
