@@ -2,6 +2,9 @@
 
 namespace Vespera\LaravelFormComponents\Components;
 
+use Vespera\LaravelFormComponents\Traits\HandlesDefaultAndOldValue;
+use Vespera\LaravelFormComponents\Traits\HandlesValidationErrors;
+
 class Radios extends Component
 {
     use HandlesValidationErrors;
@@ -25,8 +28,7 @@ class Radios extends Component
         bool $required = false,
         $bind = null,
         $selected = null
-    )
-    {
+    ) {
         $this->name = $name;
         $this->label = $label;
         $this->options = $options;

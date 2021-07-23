@@ -9,7 +9,7 @@
             {{ $multiple ? 'multiple' : '' }}
         >
             @unless($multiple)
-                <option value="">Selecione...</option>
+                <option value="">{{ __('Selecione...') }}</option>
             @endunless
 
             @foreach($options as $key => $option)

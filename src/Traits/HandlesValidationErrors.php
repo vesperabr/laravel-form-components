@@ -1,14 +1,12 @@
 <?php
 
-namespace Vespera\LaravelFormComponents\Components;
+namespace Vespera\LaravelFormComponents\Traits;
 
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ViewErrorBag;
 
 trait HandlesValidationErrors
 {
-    use HandlesNameAttribute;
-
     /**
      * Returns a boolean wether the given attribute has an error.
      *
@@ -18,11 +16,11 @@ trait HandlesValidationErrors
      */
     public function hasError(string $name, string $bag = 'default')
     {
-        $errors = View::shared('errors', function() {
-            return request()->session()->get('errors', new ViewErrorBag);
+        $errors = View::shared('errors', function () {
+            return request()->session()->get('errors', new ViewErrorBag());
         });
 
-        $name = $this->toDotNotation($name);
+        $name = static::convertBracketsToDots($name);
 
         return $errors->getBag($bag)->has($name);
     }

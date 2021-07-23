@@ -3,52 +3,50 @@
 use Vespera\LaravelFormComponents\Components;
 
 return [
-    'framework' => 'monalisa',
-
     'components' => [
         'form' => [
             'class' => Components\Form::class,
-            'view'  => 'form-components::{framework}.form',
+            'view'  => 'form-components::form',
         ],
 
         'label' => [
             'class' => Components\Label::class,
-            'view'  => 'form-components::{framework}.label',
+            'view'  => 'form-components::label',
         ],
 
         'input' => [
             'class' => Components\Input::class,
-            'view'  => 'form-components::{framework}.input',
+            'view'  => 'form-components::input',
         ],
 
         'textarea' => [
             'class' => Components\Textarea::class,
-            'view'  => 'form-components::{framework}.textarea',
+            'view'  => 'form-components::textarea',
         ],
 
         'select' => [
             'class' => Components\Select::class,
-            'view'  => 'form-components::{framework}.select',
+            'view'  => 'form-components::select',
         ],
 
         'checkbox' => [
             'class' => Components\Checkbox::class,
-            'view'  => 'form-components::{framework}.checkbox',
+            'view'  => 'form-components::checkbox',
         ],
 
         'checkboxes' => [
             'class' => Components\Checkboxes::class,
-            'view'  => 'form-components::{framework}.checkboxes',
+            'view'  => 'form-components::checkboxes',
         ],
 
         'radios' => [
             'class' => Components\Radios::class,
-            'view'  => 'form-components::{framework}.radios',
+            'view'  => 'form-components::radios',
         ],
 
-        'buttons' => [
-            'class' => Components\Buttons::class,
-            'view'  => 'form-components::{framework}.buttons',
+        'submit' => [
+            'class' => Components\Submit::class,
+            'view'  => 'form-components::submit',
         ],
     ]
 ];

@@ -1,11 +1,10 @@
 <?php
 
-namespace Vespera\LaravelFormComponents\Components;
+namespace Vespera\LaravelFormComponents\Traits;
 
 trait HandlesDefaultAndOldValue
 {
     use HandlesBoundValues;
-    use HandlesNameAttribute;
 
     /**
      * Set field value
@@ -17,7 +16,7 @@ trait HandlesDefaultAndOldValue
      */
     private function setValue(string $name, $bind = null, $default = null)
     {
-        $name = $this->toDotNotation($name);
+        $name = static::convertBracketsToDots($name);
         $default = $this->getBoundValue($bind, $name) ?: $default;
         return $this->value = old($name, $default);
     }

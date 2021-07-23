@@ -2,6 +2,9 @@
 
 namespace Vespera\LaravelFormComponents\Components;
 
+use Vespera\LaravelFormComponents\Traits\HandlesDefaultAndOldValue;
+use Vespera\LaravelFormComponents\Traits\HandlesValidationErrors;
+
 class Select extends Component
 {
     use HandlesValidationErrors;
@@ -31,8 +34,7 @@ class Select extends Component
         bool $showErrors = false,
         $bind = null,
         $selected = null
-    )
-    {
+    ) {
         $this->name = $name;
         $this->id = $id ?: $name;
         $this->label = $label;

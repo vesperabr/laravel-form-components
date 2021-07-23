@@ -9,7 +9,7 @@ class FormDataBinder
     /**
      * Tree of bound targets.
      */
-    private $bindings = [];
+    private array $bindings = [];
 
     /**
      * Bind a target to the current instance
@@ -17,7 +17,7 @@ class FormDataBinder
      * @param mixed $target
      * @return void
      */
-    public function bind($target)
+    public function bind($target): void
     {
         $this->bindings[] = $target;
     }

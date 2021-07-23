@@ -1,6 +1,6 @@
 <?php
 
-namespace Vespera\LaravelFormComponents\Components;
+namespace Vespera\LaravelFormComponents\Traits;
 
 use Illuminate\Database\Eloquent\Collection;
 use Vespera\LaravelFormComponents\FormDataBinder;
@@ -34,7 +34,6 @@ trait HandlesBoundValues
         $boundValue = data_get($bind, $name);
 
         if ($boundValue instanceof Collection) {
-
             $boundValue = $boundValue->modelKeys();
         }
 

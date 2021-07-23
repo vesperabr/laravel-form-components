@@ -6,13 +6,12 @@
         @endempty
 
         <input
-            type="{{ in_array($type, ['float', 'money', 'cep', 'cnpj', 'cpf', 'cpfcnpj']) ? 'text' : $type }}"
+            type="{{ $type }}"
             name="{{ $name }}"
             id="{{ $id }}"
             value="{{ $value }}"
             {{ $attributes->merge([
                 'class' => $hasError($name) ? '_error' : '',
-                'data-mask-name' => ($masked && in_array($type, ['float', 'money', 'cep', 'cnpj', 'cpf', 'cpfcnpj', 'tel'])) ? $type : ''
             ]) }}
             {{ $required ? 'required' : '' }}
         >

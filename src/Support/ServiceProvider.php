@@ -1,6 +1,6 @@
 <?php
 
-namespace Vespera\LaravelFormComponents;
+namespace Vespera\LaravelFormComponents\Support;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Blade;
@@ -14,10 +14,10 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'form-components');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/config.php', 'form-components');
 
-        $this->app->singleton(FormDataBinder::class, function() {
-            return new FormDataBinder;
+        $this->app->singleton(FormDataBinder::class, function () {
+            return new FormDataBinder();
         });
     }
 
@@ -29,16 +29,16 @@ class ServiceProvider extends BaseServiceProvider
         // Publish config and view files
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/config.php' => config_path('form-components.php'),
+                __DIR__ . '/../../config/config.php' => config_path('form-components.php'),
             ], 'config');
 
             $this->publishes([
-                __DIR__ . '/../resources/views' => base_path('resources/views/vendor/form-components'),
+                __DIR__ . '/../../resources/views' => base_path('resources/views/vendor/form-components'),
             ], 'views');
         }
 
         // Set views folder
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'form-components');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'form-components');
 
         // Set directives
         Blade::directive('bind', function ($bind) {
@@ -50,7 +50,7 @@ class ServiceProvider extends BaseServiceProvider
         });
 
         // Set components
-        Collection::make(config('form-components.components'))->each(function($component, $alias) {
+        Collection::make(config('form-components.components'))->each(function ($component, $alias) {
             return Blade::component($alias, $component['class']);
         });
     }

@@ -2,6 +2,9 @@
 
 namespace Vespera\LaravelFormComponents\Components;
 
+use Vespera\LaravelFormComponents\Traits\HandlesDefaultAndOldValue;
+use Vespera\LaravelFormComponents\Traits\HandlesValidationErrors;
+
 class Textarea extends Component
 {
     use HandlesValidationErrors;
@@ -27,8 +30,7 @@ class Textarea extends Component
         bool $showErrors = false,
         $bind = null,
         $value = null
-    )
-    {
+    ) {
         $this->name = $name;
         $this->id = $id ?: $name;
         $this->label = $label;

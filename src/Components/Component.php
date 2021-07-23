@@ -2,11 +2,11 @@
 
 namespace Vespera\LaravelFormComponents\Components;
 
-Use Illuminate\Support\Str;
-Use Illuminate\View\Component as BaseComponent;
-Use Vespera\LaravelFormComponents\FormDataBinder;
+use Illuminate\Support\Str;
+use Illuminate\View\Component as BaseComponent;
+use Vespera\LaravelFormComponents\FormDataBinder;
 
-class Component extends BaseComponent
+abstract class Component extends BaseComponent
 {
     /**
      * Get the view / contents that represent the component.
@@ -16,9 +16,12 @@ class Component extends BaseComponent
     public function render()
     {
         $alias = Str::kebab(class_basename($this));
-        $config = config("form-components.components.{$alias}");
-        $framework = config("form-components.framework");
+        return config("form-components.components.{$alias}.view");
+    }
 
-        return str_replace('{framework}', $framework, $config['view']);
+    protected static function convertBracketsToDots(string $name): string
+    {
+        $name = str_replace(['[', ']'], ['.', ''], $name);
+        return rtrim($name, '.');
     }
 }

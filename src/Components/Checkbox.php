@@ -2,10 +2,11 @@
 
 namespace Vespera\LaravelFormComponents\Components;
 
+use Vespera\LaravelFormComponents\Traits\HandlesBoundValues;
+
 class Checkbox extends Component
 {
     use HandlesBoundValues;
-    use HandlesNameAttribute;
 
     public $label;
     public $name;
@@ -29,8 +30,7 @@ class Checkbox extends Component
         bool $checked = false,
         $bind = null,
         $value = null
-    )
-    {
+    ) {
         $this->label = $label;
         $this->name = $name;
         $this->id = $id ?: $name;
@@ -43,7 +43,7 @@ class Checkbox extends Component
 
     private function isChecked(string $name, $bind = null, bool $checked = false)
     {
-        $name = $this->toDotNotation($name);
+        $name = static::convertBracketsToDots($name);
         $boundValue = $this->getBoundValue($bind, $name);
         $oldValue = old($name);
 

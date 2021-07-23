@@ -2,6 +2,9 @@
 
 namespace Vespera\LaravelFormComponents\Components;
 
+use Vespera\LaravelFormComponents\Traits\HandlesDefaultAndOldValue;
+use Vespera\LaravelFormComponents\Traits\HandlesValidationErrors;
+
 class Input extends Component
 {
     use HandlesValidationErrors;
@@ -16,7 +19,6 @@ class Input extends Component
     public $required;
     public $value;
     public $showErrors;
-    public $masked;
 
     /**
      * Create a new component instance.
@@ -32,11 +34,9 @@ class Input extends Component
         string $append = '',
         bool $required = false,
         bool $showErrors = false,
-        bool $masked = true,
         $bind = null,
         $value = null
-    )
-    {
+    ) {
         $this->type = $type;
         $this->name = $name;
         $this->id = $id ?: $name;
@@ -45,7 +45,6 @@ class Input extends Component
         $this->append = $append;
         $this->required = $required;
         $this->showErrors = $showErrors;
-        $this->masked = $masked;
 
         $bind = $type === 'password' ? false : $bind;
         $this->setValue($name, $bind, $value);
